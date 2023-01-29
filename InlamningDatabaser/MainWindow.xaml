@@ -1,0 +1,66 @@
+﻿<Window x:Class="InlamningDatabaser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InlamningDatabaser"
+        mc:Ignorable="d"
+        Title="Paintings"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <!--This is a comment-->
+    <StackPanel Height="450" Width="800">
+        <Grid>
+            <Grid.RowDefinitions>
+                <!--Row 0-->
+                <RowDefinition Height="50"/>
+                <!--Row 1-->
+                <RowDefinition Height="50"/>
+                <!--Row 2-->
+                <RowDefinition Height="300"/>
+                <!--Row 3-->
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Content="Paintings" 
+                       HorizontalAlignment="Center"
+                       FontFamily="Freestyle Script" FontSize="36" />
+            </Grid>
+            <Grid Grid.Row="1">
+                <Label Content="Sök:" 
+                   FontFamily="Freestyle Script" FontSize="24"
+                   HorizontalAlignment="Left" VerticalAlignment="Center" 
+                   Width="40" Height="40"
+                   Margin="40,0,0,0"/>
+
+                <TextBox x:Name="tboxSearch" 
+                     HorizontalAlignment="Left" VerticalAlignment="Center" 
+                     Height="20" Width="200" 
+                     Margin="85,0,0,0" Padding="2,2,2,2"/>
+
+                <Button x:Name="btnSearch" 
+                    Click="btnSearch_Click" 
+                    Content="Sök Tavla" 
+                    HorizontalAlignment="Left" VerticalAlignment="Center" 
+                    Height="20"
+                    Margin="300,0,0,0" Padding="2,2,2,2"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <DataGrid Name="dg" CanUserResizeColumns="False" IsReadOnly="True" SelectionChanged="dg_SelectionChanged"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnAdd" Content="Lägg till målning" FontFamily="Freestyle Script" FontSize="24" Grid.Column="0" Click="btnAdd_Click"/>
+                <Button x:Name="btnInfo" Content="Motiv" FontFamily="Freestyle Script" FontSize="24" Grid.Column="1" Click="btnInfo_Click" IsEnabled="False" />
+                <Button x:Name="btnUpdate" Content="Uppdatera målning" FontFamily="Freestyle Script" FontSize="24" Grid.Column="2" IsEnabled="False" Click="btnUpdate_Click"/>
+                <Button x:Name="btnDelet" Content="Ta bort målning" FontFamily="Freestyle Script" FontSize="24" Grid.Column="3" IsEnabled="False" Click="btnDelet_Click"/>
+            </Grid>
+        </Grid>
+    </StackPanel>
+</Window>
